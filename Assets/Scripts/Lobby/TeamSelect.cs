@@ -20,8 +20,6 @@ namespace MultiPlayerGame.Lobby
 
         private Slot[] slots;
 
-
-
         public GameObject _slot1Obj;
         public GameObject _slot2Obj;
         public GameObject _slot3Obj;
@@ -61,6 +59,7 @@ namespace MultiPlayerGame.Lobby
                     team = 2;
                 }
 
+                //* safe slot and team state info to GameManager 
                 GameManager.Instance.joinedSlot = slot;
                 GameManager.Instance.joinedTeam = true;
                 _photonView.RPC("JoinTeamRPC", RpcTarget.All, CharacterManager.Instance.selectedChara, slot, team, PhotonNetwork.NickName);
@@ -72,7 +71,6 @@ namespace MultiPlayerGame.Lobby
 
             GameManager.Instance.joinedTeam = false;
             _photonView.RPC("LeaveTeamRPC", RpcTarget.All, GameManager.Instance.joinedSlot);
-
 
         }
 

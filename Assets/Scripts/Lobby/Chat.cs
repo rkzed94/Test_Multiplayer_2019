@@ -44,14 +44,6 @@ public class Chat : MonoBehaviour
 
     }
 
-    void OnGUI()
-    {
-        // for (int i = 0; i < _chatMessages.Count; i++)
-        // {
-        //     Debug.Log(_chatMessages[i].message);
-        // }
-    }
-
     [PunRPC]
     void SendChat(string sender, string message)
     {

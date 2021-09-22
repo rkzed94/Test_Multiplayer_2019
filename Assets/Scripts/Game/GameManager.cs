@@ -16,8 +16,6 @@ namespace MultiPlayerGame.Game
         public bool joinedTeam;
         public int joinedSlot;
 
-        private PhotonView _photonView;
-
         private void Awake()
         {
             if (Instance == null)
@@ -33,7 +31,7 @@ namespace MultiPlayerGame.Game
         }
         void Start()
         {
-            _photonView = PhotonView.Get(this);
+            //* Initiate 4 Players
             Players = new PlayerProperty[4];
 
         }

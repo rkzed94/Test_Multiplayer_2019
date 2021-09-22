@@ -10,7 +10,6 @@ public class CharacterSelect : MonoBehaviour
     public CharacterProperty[] _characters;
 
     public GameObject _blocker;
-    private PhotonView _photonview;
 
     //* Character1 Stats
     public string char1_name;
@@ -43,7 +42,6 @@ public class CharacterSelect : MonoBehaviour
 
     void Start()
     {
-        _photonview = PhotonView.Get(this);
         _characters = new CharacterProperty[3];
 
         _characters[0].name = char1_name;
@@ -98,7 +96,6 @@ public class CharacterSelect : MonoBehaviour
         _range = _characters[num].range;
 
         CharacterManager.Instance.selectedChara = num;
-
     }
 
 }

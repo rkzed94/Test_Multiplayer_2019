@@ -99,7 +99,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("Fails to join random lobby, create new one!");
+        Debug.Log("if Fail to join random lobby, create new one!");
         RoomOptions _ro = new RoomOptions();
         _ro.MaxPlayers = 4;
         PhotonNetwork.CreateRoom(null, _ro, TypedLobby.Default);
