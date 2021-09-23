@@ -9,6 +9,7 @@ namespace MultiPlayerGame.Game
 
     public class PlayerProperty
     {
+        public int userid;
         public string nickname;
         public int team = 99;
         public int slot;

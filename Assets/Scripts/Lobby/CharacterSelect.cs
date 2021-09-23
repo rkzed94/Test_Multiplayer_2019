@@ -10,6 +10,8 @@ public class CharacterSelect : MonoBehaviour
     public CharacterProperty[] _characters;
 
     public GameObject _blocker;
+    public GameObject teamSelectUi;
+
 
     //* Character1 Stats
     public string char1_name;
@@ -77,14 +79,14 @@ public class CharacterSelect : MonoBehaviour
     private void Update()
     {
         //* Set blocker to active when the player already joined a team.
-        if (GameManager.Instance.joinedTeam)
-        {
-            _blocker.SetActive(true);
-        }
-        else
-        {
-            _blocker.SetActive(false);
-        }
+        // if (GameManager.Instance.joinedTeam)
+        // {
+        //     _blocker.SetActive(true);
+        // }
+        // else
+        // {
+        //     _blocker.SetActive(false);
+        // }
     }
 
     public void Btn_SelectCharacter(int num)

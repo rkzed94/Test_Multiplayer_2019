@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
+using MultiPlayerGame.Game;
 
-public class Chat : MonoBehaviour
+public class Chat : MonoBehaviourPunCallbacks
 {
 
 
@@ -29,7 +31,7 @@ public class Chat : MonoBehaviour
     private void Start()
     {
         _photonView = PhotonView.Get(this);
-        _photonView.RPC("SendChat", RpcTarget.All, "System", PhotonNetwork.NickName + " joined room..");
+        _photonView.RPC("SendChat", RpcTarget.AllBuffered, "System", PhotonNetwork.NickName + " joined room..");
     }
 
     public void InputChat(string msg)
@@ -42,6 +44,11 @@ public class Chat : MonoBehaviour
         InputField _inputfield = _inputFieldUi.GetComponent<InputField>();
         _inputfield.text = ""; //* Clear input field
 
+    }
+
+    public override void OnPlayerLeftRoom(Player player)
+    {
+        SendChat("System", player.NickName + " leave room..");
     }
 
     [PunRPC]

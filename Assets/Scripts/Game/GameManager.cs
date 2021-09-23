@@ -35,9 +35,26 @@ namespace MultiPlayerGame.Game
             Players = new PlayerProperty[4];
 
         }
+
         public PlayerProperty getPlayerInfo(int index)
         {
             return Players[index];
+        }
+
+        public PlayerProperty getPlayerInfobyUserid(int userid)
+        {
+            foreach (PlayerProperty player in Players)
+            {
+                if (player != null)
+                {
+                    if (player.userid == userid)
+                    {
+                        return player;
+                    }
+                }
+
+            }
+            return new PlayerProperty();
         }
         public void removeTeam(int slot)
         {
